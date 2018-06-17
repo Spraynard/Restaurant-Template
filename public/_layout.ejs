@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title; %> | <%= name; %></title>
+	<meta name="description" content="<%= description; %>">
+	<% public.static.css._contents.forEach(( asset ) => { %>
+		<link rel="stylesheet" type="text/css" href="<%= uri; %>/static/css/<%= asset; %>/">
+	<% }); %>
+</head>
+<body>
+	<%- partial("_partials/_header"); %>
+	<div class="main-wrapper">
+		<%- yield; %>
+	</div>
+	<%- partial("_partials/_footer"); %>
+</body>
+</html>

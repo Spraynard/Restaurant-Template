@@ -1,0 +1,32 @@
+{
+	"breakfast" : {
+		"title" : "breakfast",
+		"seoTitle" : "Breakfast Items",
+		"errata" : "Only avaialable before 2:00 p.m.",
+		"order" : 1
+	},
+	"lunch" : {
+		"title" : "lunch",
+		"seoTitle" : "Lunch Items",
+		"errata" : "",
+		"order" : 2
+	},
+	"dinner" : {
+		"title" : "dinner",
+		"seoTitle" : "Dinner Items You'll Love",
+		"errata" : "",
+		"order" : 3
+	},
+	"drinks" : {
+		"title" : "drinks",
+		"seoTitle" : "Refreshing drinks",
+		"errata" : "Unlimited refills available for $2.00 more!",
+		"order" : 5
+	},
+	"sides" : {
+		"title" : "sides",
+		"seoTitle" : "Amazing Sides",
+		"errata" : "Tell the waiter \"Extra Spicy Meatballs!!!\" to get a nice surpise with your side.",
+		"order" : 4
+	}
+}

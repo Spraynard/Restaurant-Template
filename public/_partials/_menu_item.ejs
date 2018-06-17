@@ -1,0 +1,43 @@
+<%
+var itemText = "You have not included a menuItem parameter to this partial; The item object.";
+var itemImage = '//www.lorempixel.com/100/100/food';
+var itemTinyDesc = "Flavorful and Yummy";
+var itemDesc = 'sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper eget';
+
+if ( typeof menuItem !== "undefined" ) {
+	itemText = menuItem.name;
+
+	if ( typeof menuItem.image !== "undefined" )
+	{
+		itemImage = uri + '/static/img/menuItemImages/' + menuItem.image;
+	}
+
+	if ( typeof menuItem.tinyDesc !== "undefined" )
+	{
+		itemTinyDesc = tinyDesc;
+	}
+
+	if ( typeof menuItem.description !== "undefined" )
+	{
+		itemDesc = menuItem.description;
+	}
+}
+
+if ( !itemText.length )
+{
+	return;
+}
+%><div class="menu-item">
+	<div class="menu-item-image-wrapper">
+		<img height="100" width="100" src="<%= itemImage ;%>" />
+	</div>
+	<div class="menu-item-title">
+		<%= itemText; %>
+	</div>
+	<div class="menu-item-tiny-description">
+		<%= itemTinyDesc; %>
+	</div>
+	<div class="menu-item-description">
+		<p><em><%= itemDesc; %></em></p>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+{
+	"globals" : {
+		"uri" : "//localhost:8080",
+		"name" : "A Restaurant",
+		"environment" : "development",
+		"title" : "Main Information",
+		"logoImage" : "/static/img/silverware.svg",
+		"logoLeft" : false,
+		"logoCenter" : true,
+		"logoRight" : false,
+		"description" : "Come to our restaurant to get some nice treats! We've made sure to get the best food for you to put your face on!"
+	}
+}

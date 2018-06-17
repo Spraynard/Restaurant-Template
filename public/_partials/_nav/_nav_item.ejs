@@ -1,0 +1,25 @@
+<%
+	if ( typeof link !== "undefined" )
+	{
+		var navLink = link;
+	}
+
+	if ( typeof text !== "undefined" && text.length )
+	{
+		var navText = text;
+	}
+
+	var className = 'nav-item';
+
+	var current = ( current.source === navLink );
+
+	if ( current.length )
+	{
+		className += ' ' + current;
+	}
+%>
+<li class="<%= className; %>">
+	<a href="<%= uri; %>/<%= navLink; %>">
+		<%= navText; %>
+	</a>
+</li>

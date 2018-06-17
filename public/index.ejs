@@ -1,0 +1,58 @@
+<%
+	// Grabbing the menu categories
+	var menuCategories = public['menu-categories']._data;
+
+	// Grabbing the product data
+	var menuItems = public['menu-items']._data;
+
+	// I guess we can sort the menu items by price?
+	var menuItemsArray = Object.keys(menuItems);
+
+	menuItemsArray.sort(( itemA, itemB ) => {
+		var itemA_price = menuItems[itemA].price;
+		var itemB_price = menuItems[itemB].price;
+
+		return itemA_price < itemB_price;
+	});
+
+	// Now we add the item into the category index of menuCategories
+	menuItemsArray.forEach(( arrayItem ) => {
+		var item = menuItems[arrayItem];
+		var itemCategory = item.category;
+
+		if ( typeof menuCategories[itemCategory]['items'] === "undefined" )
+		{
+			menuCategories[itemCategory].items = [];
+		}
+
+		menuCategories[itemCategory].items.push(item);
+	});
+
+	// Sort the categories by specified order
+	var menuCategoryArray = Object.keys(menuCategories);
+    menuCategoryArray.sort(( catA, catB ) => {
+		var catA_order = menuCategories[catA].order;
+		var catB_order = menuCategories[catB].order;
+
+		return catA_order > catB_order;
+	});
+%>
+<div class="homepage-wrapper">
+<% for ( var i = 0; i < menuCategoryArray.length; i++ ) {
+		var category = menuCategoryArray[i];
+		var categoryData = menuCategories[category];
+	%><div class="category-wrapper">
+	<div class="category-header">
+		<a href="<%= uri; %>/menu-categories/<%= category; %>">
+			<h3><span class="category-title"><%= categoryData.title; %></span>
+		</h3></a>
+		<hr />
+		<% if ( typeof categoryData.errata !== 'undefined' && categoryData.errata.length ) { %>
+			<h5 class="category-errata"><em><%= categoryData.errata; %></em></h5>
+		<% } else { %>
+			<div class="category-errata-placeholder"></div>
+		<% } %>
+	</div>
+	<div class="category-menu-items"><% categoryData.items.forEach(( item ) => { %><%- include("_partials/_menu_item", { menuItem : item } ); %><% }); %></div></div><% } %>
+</div>
+<pre><%= JSON.stringify(public.static.css._contents, null, 4); %><%= typeof public.static.css._contents %></pre>

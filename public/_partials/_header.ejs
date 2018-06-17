@@ -1,0 +1,18 @@
+<header>
+	<ul class="site-nav">
+		<% if ( typeof logoLeft !== 'undefined' && logoLeft ) { %>
+			<%- partial("_nav/_nav_logo"); %>
+		<% } %>
+		<%- partial("_nav/_nav_item", { link : 'index', 'text' : 'Home' }); %>
+		<!-- <li class="nav-item"><a href="<%= uri %>">Home</a></li> -->
+		<% if ( typeof logoCenter !== 'undefined' && logoCenter ) { %>
+			<%- partial("_nav/_nav_logo"); %>
+		<% } %>
+		<%- partial("_nav/_nav_item", { link : 'about', 'text' : 'About / Hours' }); %>
+		<!-- <li class="nav-item"><a href="">About/Hours</a></li> -->
+		<% if ( typeof logoRight !== 'undefined' && logoRight ) { %>
+			<%- partial("_nav/_nav_logo"); %>
+		<% } %>
+
+	</ul>
+</header>
