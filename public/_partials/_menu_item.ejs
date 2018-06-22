@@ -1,6 +1,7 @@
 <%
 var itemText = "You have not included a menuItem parameter to this partial; The item object.";
-var itemImage = '//www.lorempixel.com/100/100/food';
+var itemImage = 'http://via.placeholder.com/150x150';
+var itemImageSmall = 'http://via.placeholder.com/100x100';
 var itemTinyDesc = "Flavorful and Yummy";
 var itemDesc = 'sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper eget';
 
@@ -21,6 +22,20 @@ if ( typeof menuItem !== "undefined" ) {
 	{
 		itemDesc = menuItem.description;
 	}
+
+	if ( typeof menuItem.price !== "undefined" )
+	{
+		var priceArray = menuItem.price.toString().split('.');
+		if ( ! priceArray[0] )
+		{
+			priceArray[0] = 0;
+		}
+		if ( ! priceArray[1] )
+		{
+			priceArray[1] = '00';
+		}
+		menuItem.price = '<span class="price-dollars">' + priceArray[0] + '</span><span class="price-cents">' + priceArray[1] + '</span>';
+	}
 }
 
 if ( !itemText.length )
@@ -29,15 +44,18 @@ if ( !itemText.length )
 }
 %><div class="menu-item">
 	<div class="menu-item-image-wrapper">
-		<img height="100" width="100" src="<%= itemImage ;%>" />
-	</div>
-	<div class="menu-item-title">
-		<%= itemText; %>
-	</div>
-	<div class="menu-item-tiny-description">
-		<%= itemTinyDesc; %>
-	</div>
-	<div class="menu-item-description">
-		<p><em><%= itemDesc; %></em></p>
+		<img src="<%= itemImage ;%>" srcset="<%=itemImageSmall;%> 100w, <%= itemImage; %> 150w" sizes="(min-width: 768px) 150px, 100px" />
+	</div><div class="menu-item-content-wrapper">
+		<div class="menu-item-title">
+			<%= itemText; %>
+		</div>
+		<div class="menu-item-tiny-description">
+			<%= itemTinyDesc; %>
+		</div>
+		<div class="menu-item-description">
+			<p><em><%= itemDesc; %></em></p>
+		</div>
+	</div><div class="menu-item-price-wrapper price-wrapper">
+		$<%- menuItem.price %>
 	</div>
 </div>

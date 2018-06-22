@@ -11,15 +11,11 @@
 
 	var className = 'nav-item';
 
-	var current = ( current.source === navLink );
+	// var current = ( current.source === navLink );
 
-	if ( current.length )
+	if ( current.source === navLink )
 	{
-		className += ' ' + current;
+		className += ' nav-current';
 	}
 %>
-<li class="<%= className; %>">
-	<a href="<%= uri; %>/<%= navLink; %>">
-		<%= navText; %>
-	</a>
-</li>
+<li class="<%= className; %>"><a href="<%= uri; %>/<%= navLink; %>"><%= navText; %></a></li>
