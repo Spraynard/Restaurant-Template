@@ -8,6 +8,44 @@
 		"logoLeft" : false,
 		"logoCenter" : true,
 		"logoRight" : false,
-		"description" : "Come to our restaurant to get some nice treats! We've made sure to get the best food for you to put your face on!"
+		"description" : "Come to our restaurant to get some nice treats! We've made sure to get the best food for you to put your face on!",
+		"current_hours_dataset" : "general",
+		"hours" : {
+			"general" : [{
+				"day" : "Monday",
+				"open" : "9:00 a.m.",
+				"close" : "9:00 p.m."
+			},
+			{
+				"day" : "Tuesday",
+				"open" : "9:00 a.m.",
+				"close" : "9:00 p.m."
+			},
+			{
+				"day" : "Wednesday",
+				"open" : "9:00 a.m.",
+				"close" : "9:00 p.m."
+			},
+			{
+				"day" : "Thursday",
+				"open" : "9:00 a.m.",
+				"close" : "9:00 p.m."
+			},
+			{
+				"day" : "Friday",
+				"open" : "9:00 a.m.",
+				"close" : "9:00 p.m."
+			},
+			{
+				"day" : "Saturday",
+				"open" : "",
+				"close" : ""
+			},
+			{
+				"day" : "Sunday",
+				"open" : "",
+				"close" : ""
+			}]
+		}
 	}
 }
