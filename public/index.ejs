@@ -43,6 +43,7 @@
 		var categoryData = menuCategories[category];
 	%><div class="category-wrapper">
 	<div class="category-header">
+		<div class="category-header-content">
 		<a href="<%= uri; %>/menu-categories/<%= category; %>">
 			<h3><span class="category-title"><%= categoryData.title; %></span>
 		</h3></a>
@@ -52,6 +53,8 @@
 		<% } else { %>
 			<div class="category-errata-placeholder"></div>
 		<% } %>
+		</div>
+		<div class="category-header-overlay"></div>
 	</div>
 	<div class="category-menu-items"><% categoryData.items.forEach(( item ) => { %><%- include("_partials/_menu_item", { menuItem : item } ); %><% }); %></div></div><% } %>
 </div>

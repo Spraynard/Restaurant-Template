@@ -1,0 +1,50 @@
+<%
+	function returnResponsiveImagePath( imgPath, size )
+	{
+		var splitPath = imgPath.split('/');
+
+		var filename = splitPath.pop();
+		var filenameArray = filename.split('.');
+
+		var name = filenameArray[0];
+		var extension = filenameArray[1];
+
+		return splitPath.join('/') + '/' +  name + '-' + size + 'w' + '.' + extension;
+	}
+%>
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title; %> | <%= name; %></title>
+	<meta name="description" content="<%= description; %>">
+	<% if ( environment !== 'production' ) { %>
+		<% public.static.css._contents.forEach(( asset ) => { %>
+			<link rel="stylesheet" type="text/css" href="/static/css/<%=asset;%>">
+		<% }); %>
+	<% } else { %>
+		<link rel="stylesheet" type="text/css" href="/static/css/main.css">
+	<% } %>
+</head>
+<body>
+	<%- partial("../_partials/_header"); %>
+	<div class="main-wrapper">
+		<div class="menu-category-wrapper">
+			<div class="menu-category-image" style="width: 100%;">
+				<img src="http://via.placeholder.com/1920x640" style="width: 100%"/>
+				<pre><%=JSON.stringify(current, null, 4);%>
+					<%=returnResponsiveImagePath('/static/img/header-img/breakfast_croissonts.jpg', 480);%>
+				</pre>
+			</div>
+			<%- yield; %>
+		</div>
+		<div class="main-wrapper-background">
+			<%- partial("../_partials/_backgroundWrapper"); %>
+		</div>
+		<div id="loading-dock" class="loading"><div class="loading-dock-content"><img src="<%=uri;%>/<%=logoImage;%>"></div></div>
+	</div>
+	<%- partial("../_partials/_footer"); %>
+	<% public.static.js._contents.forEach(( asset ) => { %>
+		<script type="text/javascript" src="<%=uri;%>/static/js/<%=asset;%>"></script>
+	<% }); %>
+</body>
+</html>

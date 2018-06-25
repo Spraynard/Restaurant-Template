@@ -14,6 +14,10 @@ html, body {
   width: 100%;
   position: relative;
   line-height: 1.25;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  font-smooth: auto;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 }
 body{
   font-family: @description-font;
@@ -29,8 +33,10 @@ h1, h2, h3, h4 {
 h1{
   font-size: 65px;
   line-height: 1.2em;
-  border-bottom: #CCC solid 1px;
+  // border-bottom: #CCC solid 1px;
   padding: 20px 0;
+
+  // &
 }
 
 h3{
@@ -61,234 +67,6 @@ ul {
     width: 100px;
   }
 }
-//////////////////
-// Content Area //
-//////////////////
-.main-wrapper {
-  padding: 15px;
-  position: relative;
-  min-height: 800px;
-}
-
-.main-wrapper-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-
-  .svg-tree {
-    width: 100%;
-  }
-
-  .middle-line-left,
-  .middle-line-right {
-    position: absolute;
-    width: 50%;
-    top: 0;
-    bottom: 0;
-  }
-
-  @middle-line-border-sm: 1px solid #444;
-  @middle-line-border-lg: 2px solid #444;
-  .middle-line-left {
-    left: 0;
-    border-right: @middle-line-border-sm;
-
-    @media screen and (min-width: 768px) {
-      border-right: @middle-line-border-lg;
-    }
-  }
-
-  .middle-line-right {
-    right: 0;
-    border-left: @middle-line-border-sm;
-    @media screen and (min-width: 768px) {
-      border-left: @middle-line-border-lg;
-    }
-  }
-}
-
-///////////////
-// Home Page //
-///////////////
-.category-wrapper {
-  display: inline-block;
-  background: rgb(245, 255, 250);
-  width: 100%;
-
-  @media screen and (min-width: 768px)
-  {
-    width: 48%;
-    margin: 2% 1%;
-    vertical-align: top;
-    // background: rgb( 37, 37, 37 );
-    // background: rgba( 37, 37, 37, 0.8 );
-    // background: #FDAF6F;
-  }
-}
-
-.category-header {
-  padding: 10px 0px;
-  background: rgb( 37, 37, 37);
-  background: rgba( 37, 37, 37, 0.95 );
-  color: white;
-  a {
-    text-decoration: none;
-    display: inline-block;
-    color: white;
-  }
-  h3 {
-    padding-left: 5px;
-  }
-  h5 {
-    padding-left: 10px;
-  }
-}
-
-.category-title {
-  text-transform: capitalize;
-  text-decoration: underline;
-  font-size: calc(~'1em + 0.1vw');
-}
-
-.category-menu-items {
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.menu-item {
-  margin: 15px 0px;
-  width: 100%;
-
-  padding: 5px 0px;
-
-  border-bottom: 1px solid gray;
-
-  .menu-item-image-wrapper,
-  .menu-item-content-wrapper,
-  .menu-item-price-wrapper {
-    display: inline-block;
-    vertical-align: middle;
-    width: 33%;
-
-  }
-
-  .menu-item-image-wrapper {
-    width: 100%;
-    text-align: center;
-  }
-
-  .menu-item-content-wrapper {
-    width: 65%;
-  }
-
-  .menu-item-price-wrapper {
-    width: 30%;
-    padding-left: 5%;
-  }
-
-  // .menu-item-content-wrapper,
-  // .menu-item-price-wrapper {
-  //   display: inline-block;
-  //   vertical-align: middle;
-  // }
-
-  .menu-item-title {
-    padding-right: 5px;
-  }
-
-  .menu-item-tiny-description {
-    font-size: 0.85em;
-    font-weight: 500;
-    margin-bottom: 5px;
-    white-space: nowrap;
-  }
-
-  .menu-item-description {
-    font-size: 0.80em;
-    padding-right: 10px;
-  }
-
-  .menu-item-title {
-    font-family: @header-font;
-    font-size: calc(~'0.85em + 0.6vw');
-    font-weight: 700;
-  }
-
-  @media screen and (min-width: 480px) {
-    margin: 10px 0;
-
-    .menu-item-image-wrapper {
-      width: 25%;
-    }
-
-    .menu-item-content-wrapper {
-      width: 55%;
-    }
-
-    .menu-item-price-wrapper {
-      width: 18%;
-      padding-left: 2%;
-    }
-  }
-  @media screen and (min-width: 768px) {
-    border: none;
-    .menu-item-image-wrapper {
-      width: 100%;
-      text-align: left;
-    }
-
-    .menu-item-content-wrapper {
-      width: 100%;
-    }
-
-    .menu-item-price-wrapper {
-      width: 100%;
-      padding-top: 10px;
-      padding-left: 3%;
-    }
-
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
-  }
-
-  @media screen and (min-width: 992px) {
-    .menu-item-content-wrapper {
-      width: 50%;
-    }
-
-    .menu-item-price-wrapper {
-      width: 40%;
-      padding-left: 10%;
-      padding-top: 0;
-      text-align: left;
-    }
-  }
-}
-
-.category-errata,
-.category-errata-placeholder {
-  padding: 5px 0px;
-  min-height: 30px;
-
-  @media screen and (min-width: 768px) {
-    min-height: 15px;
-  }
-}
-
-.category-errata {
-  font-size: calc(~'12px + 0.1vw');
-  text-decoration: none;
-}
-
-.homepage-wrapper {
-  position: relative;
-  z-index: 2;
-}
 
 ////////////////
 // Navigation //
@@ -313,8 +91,18 @@ header
   width: 30%;
   text-transform: uppercase;
 
-  a {
+  .nav-item-text {
     text-decoration: none;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px @color-purple;
+    color: white;
+  }
+
+  &.nav-current {
+    .nav-item-text {
+      border-bottom: 2px solid #444;
+      user-select: none;
+    }
   }
 }
 
@@ -325,6 +113,15 @@ header
   height: @logo-height;
   text-align: center;
 }
+
+// footer .logo-wrapper {
+//   width: @logo-width;
+//   margin: 15px auto;
+
+//   .site-logo {
+//     fill: white;
+//   }
+// }
 
 .logo-container {
   width: @logo-width;
@@ -385,10 +182,19 @@ header
 .logo-wrapper {
     .logo-opacity-loop(2, 3, .2);
     .logo-opacity-loop(5, 3, .2);
+    path {
+      transition: stroke 0.3s ease-out;
+      stroke-width: 2;
+
+    }
   &:hover,
   &.fan-out {
     .logo-loop(2, 3, @logo-fan-width, @logo-fan-width-interval );
     .logo-loop(5, 3, -@logo-fan-width, -@logo-fan-width-interval );
+
+    path {
+      stroke: fade(@color-purple, 70%);
+    }
   }
 }
 
@@ -400,6 +206,8 @@ header
 .price-wrapper {
   font-family: "Old Standard TT";
   font-size: 1.4em;
+
+  text-shadow: 1px 1px 1px fade(@color-purple, 60%);
 }
 
 .price-cents {
@@ -407,10 +215,27 @@ header
   vertical-align: top;
   padding-left: 2px;
 }
+
+.number {
+  display: inline-block;
+  max-width: 50%;
+  transition: transform 0.2s ease-out;
+}
+
+///////////////////////////////////
+// General Menu Categories pages //
+///////////////////////////////////
+.menu-category-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
 ////////////
 // Footer //
 ////////////
 footer {
-  background: black;
+  background: #444;
+  background: fade( #444, 50% );
+  min-height: 150px;
 }
 

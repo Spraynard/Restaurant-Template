@@ -16,6 +16,12 @@
 	if ( current.source === navLink )
 	{
 		className += ' nav-current';
+		navText = '<span class="nav-item-text">' + navText + '</span>';
+	}
+
+	if ( current.source !== navLink )
+	{
+		navText = '<a class="nav-item-text" href="' + uri + '/' + navLink  + '">' + navText + '</a>';
 	}
 %>
-<li class="<%= className; %>"><a href="<%= uri; %>/<%= navLink; %>"><%= navText; %></a></li>
+<li class="<%= className; %>"><%-navText%></li>

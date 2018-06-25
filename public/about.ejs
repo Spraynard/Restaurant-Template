@@ -1,3 +1,55 @@
-<p>
-	I'm going to tell you a little bit about myself
+<%
+// We can build the hour string within javascript here. Providing more control
+if ( typeof hours === 'object' )
+{
+
+	var hours_table_html = '<div class="hours-table">';
+	hours[current_hours_dataset].forEach(( hourEntry ) => {
+		var hour_entries = ( hourEntry.open && hourEntry.close );
+
+		hours_table_html += '<div class="hour-wrapper">\
+		<div class="hour-day">' + hourEntry.day + '</div>';
+
+		var wrapperClasses = 'hour-time-wrapper';
+		if ( ! hour_entries )
+		{
+			wrapperClasses += ' closed-time'
+		}
+
+		hours_table_html += '<div class="' + wrapperClasses + '">';
+		if ( hour_entries )
+		{
+			hours_table_html += '<div class="hour-time-start">\
+			' + hourEntry.open + '</div>\
+			<div class="hour-time-separator">-</div>\
+			<div class="hour-time-end">' + hourEntry.close + '</div>';
+		} else {
+			hours_table_html += '<div class="hour-time-closed">CLOSED</div>';
+		}
+
+		hours_table_html += '</div></div>';
+	});
+	hours_table_html += '</div>';
+}
+%>
+<div id="about-page-wrapper">
+	<h1>ABOUT</h1>
+	<div class="left-container about-container">
+	<p>
+Bacon ipsum dolor amet sirloin boudin brisket prosciutto, landjaeger capicola cupim doner chuck. Kevin bacon picanha rump t-bone jowl meatball. Jowl salami pastrami pork belly prosciutto meatloaf cow. Tail pastrami meatloaf, picanha pork loin buffalo sausage drumstick. Corned beef kevin prosciutto doner, meatloaf t-bone alcatra fatback buffalo bresaola. Strip steak meatloaf ham hock landjaeger rump tri-tip pig.
 </p>
+<p>
+Biltong ham landjaeger, pork belly kielbasa boudin salami swine porchetta tri-tip. Boudin pork chop hamburger cupim. Beef ribs tail chuck cupim bacon. Alcatra cupim spare ribs ham tongue ham hock. Brisket shoulder bacon landjaeger hamburger. Filet mignon hamburger turducken jerky, biltong cow shank meatloaf andouille ham hock chuck beef venison pork chop ham.
+	</p>
+	</div>
+	<div class="right-container">
+		<div class="map-box" style="background: red;"></div>
+		<h1>ADDRESS</h1>
+		<p>715 Summit Street<br/>Kalamazoo, MI, 49009</p>
+	</div>
+	<div class="middle-container">
+		<h1>HOURS</h1>
+		<%-hours_table_html;%>
+		<div class="middle-container-embellishment"></div>
+	</div>
+</div>

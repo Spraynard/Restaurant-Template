@@ -1,15 +1,17 @@
 {
 	"breakfast" : {
+		"order" : 1,
 		"title" : "breakfast",
-		"seoTitle" : "Breakfast Items",
 		"errata" : "Only avaialable before 2:00 p.m.",
-		"order" : 1
+		"seoTitle" : "Breakfast Items",
+		"category-header-image" : "/static/img/header-img/breakfast_croissonts.jpg"
 	},
 	"lunch" : {
+		"order" : 2,
 		"title" : "lunch",
-		"seoTitle" : "Lunch Items",
 		"errata" : "",
-		"order" : 2
+		"seoTitle" : "Lunch Items",
+		"category-header-image" : ""
 	},
 	"dinner" : {
 		"title" : "dinner",
@@ -18,15 +20,17 @@
 		"order" : 3
 	},
 	"drinks" : {
+		"order" : 5,
 		"title" : "drinks",
-		"seoTitle" : "Refreshing drinks",
 		"errata" : "Unlimited refills available for $2.00 more!",
-		"order" : 5
+		"seoTitle" : "Refreshing drinks",
+		"category-header-image" : ""
 	},
 	"sides" : {
+		"order" : 4,
 		"title" : "sides",
-		"seoTitle" : "Amazing Sides",
 		"errata" : "Tell the waiter \"Extra Spicy Meatballs!!!\" to get a nice surpise with your side.",
-		"order" : 4
+		"seoTitle" : "Amazing Sides",
+		"category-header-image" : ""
 	}
 }

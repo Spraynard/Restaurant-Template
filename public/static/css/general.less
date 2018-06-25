@@ -1,0 +1,48 @@
+//////////////////
+// Content Area //
+//////////////////
+.main-wrapper {
+  padding: 15px;
+  position: relative;
+  min-height: 800px;
+}
+
+.main-wrapper-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+
+  .svg-tree {
+    width: 100%;
+  }
+
+  .middle-line-left,
+  .middle-line-right {
+    position: absolute;
+    width: 50%;
+    top: 0;
+    bottom: 0;
+  }
+
+  @middle-line-border-sm: 1px solid #444;
+  @middle-line-border-lg: 2px solid #444;
+  .middle-line-left {
+    left: 0;
+    border-right: @middle-line-border-sm;
+
+    @media screen and (min-width: 768px) {
+      border-right: @middle-line-border-lg;
+    }
+  }
+
+  .middle-line-right {
+    right: 0;
+    border-left: @middle-line-border-sm;
+    @media screen and (min-width: 768px) {
+      border-left: @middle-line-border-lg;
+    }
+  }
+}
