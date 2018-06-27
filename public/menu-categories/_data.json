@@ -4,7 +4,7 @@
 		"title" : "breakfast",
 		"errata" : "Only avaialable before 2:00 p.m.",
 		"seoTitle" : "Breakfast Items",
-		"category-header-image" : "/static/img/header-img/breakfast_croissonts.jpg"
+		"category-header-image" : "breakfast_croissants.jpg"
 	},
 	"lunch" : {
 		"order" : 2,

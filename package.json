@@ -1,0 +1,25 @@
+{
+  "name": "restaurant_template",
+  "version": "0.0.5",
+  "description": "A template made with Harp.js that is made for a restaurant",
+  "main": "n/a",
+  "scripts": {
+	"dev": "harp server --port 8080 & browser-sync start --proxy 'localhost:8080' --files '**/*.ejs **/*.jade, **/*.less, **/*.json, **/*.js, **/*.coffee' -- no-notify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spraynard/harp_restaurant_template.git"
+  },
+  "keywords": [
+    "harp.js",
+    "restaurant",
+    "template"
+  ],
+  "author": "Kellan Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Spraynard/harp_restaurant_template/issues"
+  },
+  "homepage": "https://github.com/Spraynard/harp_restaurant_template#readme"
+}

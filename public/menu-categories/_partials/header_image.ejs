@@ -1,0 +1,45 @@
+<%
+	var optimized_image_path = uri + '/static/img/optimized-images/';
+	function returnResponsiveImagePath( img, size )
+	{
+		var filenameArray = img.split('.');
+
+		var name = filenameArray[0];
+		var extension = filenameArray[1];
+
+		return optimized_image_path + name + '_' + size + '.' + extension;
+	}
+
+	var image_src_array = image_src.split('.');
+	var image_src_filename = image_src_array[0];
+	var image_src_extension = image_src_array[1];
+
+	var main_img_src = image_src_filename + '_optimized.' + image_src_extension;
+
+var image_object = {
+	'lg' : optimized_image_path + main_img_src,
+	'md' : returnResponsiveImagePath(main_img_src, 1200 ),
+	'sm' : returnResponsiveImagePath(main_img_src, 992),
+	'xs' : returnResponsiveImagePath(main_img_src, 768),
+	'xxs' : returnResponsiveImagePath(main_img_src, 480)
+}
+%>
+<div class="menu-category-image" style="width: 100%;">
+	<picture>
+		<source
+			media='(max-width: 479px)'
+			srcset="<%=image_object.xxs%>"
+		/>
+		<img
+			src="<%=image_object.lg%>"
+			srcset="
+			<%=image_object.xs%> 768w,
+			<%=image_object.sm%> 992w,
+			<%=image_object.md%> 1200w,
+			<%=image_object.lg%> 1920w"
+		/>
+	</picture>
+	<div class="menu-category-text">
+		<h1><%= menu_category_text.substring(0,1).toUpperCase() + menu_category_text.substring(1, menu_category_text.length); %></h1>
+	</div>
+</div>

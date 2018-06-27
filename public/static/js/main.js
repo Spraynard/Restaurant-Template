@@ -2,8 +2,8 @@ function obtainRandomVector( xMax, yMax )
 {
 	// Randomly select whether or not we are going
 	// to have a negative number.
-	var xSign = ( Math.random() >= .50 ) ? 1 : -1;
-	var ySign = ( Math.random() >= .50 ) ? 1 : -1;
+	var xSign = ( Math.random() >= 0.50 ) ? 1 : -1;
+	var ySign = ( Math.random() >= 0.50 ) ? 1 : -1;
 
 	return [
 		Math.ceil(Math.random() * ( xSign * xMax)),
