@@ -1,3 +1,4 @@
 .DS_Store
-*.jpg
+public/static/img/header-images/
+public/static/img/optimized-images/
 *.png
