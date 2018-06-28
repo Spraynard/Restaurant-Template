@@ -1,5 +1,10 @@
 # !/usr/bin/bash
 
+# optimize_header_images.sh
+# Looks at all of the images in /public/img/header-images
+# and runs them through a gamut of image optimization operations
+# to be built for the <picture> tag on menu category pages.
+
 # This script wont work without imagemagick
 imagemagick_path=$(command -v magick)
 if [ ${#imagemagick_path} -eq 0 ]
@@ -25,8 +30,9 @@ then
 fi
 
 keep_original_image=0
+crop_base_image=''
 
-for image in ${image_dir}/header-img/*
+for image in ${image_dir}/header-images/*
 do
 	file_base=$(basename ${image})
 	file_extension="${file_base##*.}"
@@ -49,6 +55,11 @@ do
 		new_image="${image_dir}/optimized-images/${new_image_name}"
 		convert "${image}" -crop "${file_original_width}x${file_original_aspect_ratio_height}+0+${height_offset}" "${new_image}"
 		image="${new_image}"
+
+		file_original_dimensions_string=$(identify -ping -format '%w %h' "${image}")
+		file_original_dimensions_array=(${file_original_dimensions_string})
+		file_original_width="${file_original_dimensions_array[0]}"
+		file_original_height="${file_original_dimensions_array[1]}"
 	else
 		keep_original_image=1
 	fi
@@ -66,7 +77,7 @@ do
 		then
 			middle_x_offset=$(expr $(expr ${file_original_width} - ${xxs_image_width} ) / 2 )
 			middle_y_offset=$(expr $(expr ${file_original_height} - ${xxs_image_height} ) / 2)
-			convert "${image}" -crop "${xxs_image_width}x${xxs_image_height}+${middle_x_offset}+${middle_y_offset}" "${opti_image_name}"
+			convert "${crop_base_image}" -crop "${xxs_image_width}x${xxs_image_height}+${middle_x_offset}+${middle_y_offset}" "${opti_image_name}"
 			continue
 		fi
 
@@ -77,14 +88,23 @@ do
 		else
 			convert "${image}" -resize "${i}x${opti_image_file_height}" -sampling-factor 4:2:0 -strip -interlace Plane -quality 60 -colorspace sRGB "${opti_image_name}"
 		fi
+
+		if [ ${i} = "1200" ]
+		then
+			crop_base_image="${opti_image_name}"
+			file_original_dimensions_string=$(identify -ping -format '%w %h' "${crop_base_image}")
+			file_original_dimensions_array=(${file_original_dimensions_string})
+			file_original_width="${file_original_dimensions_array[0]}"
+			file_original_height="${file_original_dimensions_array[1]}"
+		fi
 	done
 
 	if [ ${keep_original_image} -eq 0 ]
 	then
 		if [ ${user_has_mozjpeg} -gt 0 ]
 		then
-			echo "Hello there"
-			echo "${image}"
+			# echo "Hello there"
+			# echo "${image}"
 			mozcjpeg -outfile "${image_dir}/optimized-images/${file_name}_optimized.${file_extension}" -quality 60 "${image}"
 		else
 			mogrify -sampling-factor 4:2:0 -strip -interlace Plane -quality 60 "${image}"
