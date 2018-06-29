@@ -1,5 +1,5 @@
 .DS_Store
 public/static/img/header-images/
 public/static/img/optimized-images/
-docs/static/img/header-images/
+header-images/*.jpg
 *.png
