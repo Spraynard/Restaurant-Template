@@ -32,7 +32,7 @@ fi
 keep_original_image=0
 crop_base_image=''
 
-for image in ${image_dir}/header-images/*
+for image in header-images/*
 do
 	file_base=$(basename ${image})
 	file_extension="${file_base##*.}"
