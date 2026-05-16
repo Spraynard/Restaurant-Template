@@ -3,3 +3,5 @@ public/static/img/header-images/
 public/static/img/optimized-images/
 header-images/*.jpg
 *.png
+node_modules/
+www/
