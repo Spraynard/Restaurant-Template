@@ -7,15 +7,11 @@ A template made with [Harp.js](http://harpjs.com/) with a front-end and back-end
 
 ### Prerequisites
 
-You must have harp.js installed on your system. Optionally, you can also install [Browsersync](https://www.browsersync.io/) in order to run the NPM script that is included with this repo.
-
-You can do either of the two by running
+You must have harp.js installed on your system
 ```
 npm install -g harp
 ```
-```
-npm install -g browser-sync
-```
+
 
 ### Installing
 
@@ -25,18 +21,10 @@ You will want to fork this repo and clone into your local computer by running
 git clone [repo-name] [directory] <--- optional
 ```
 
-Then, traverse into the directory that was just made and run either of the two commands (based on if you have browser-sync or not)
-
-#### With Browsersync
+Then, traverse into the directory that was just made and run the following command
 
 ```
-npm run dev
-```
-
-#### Without Browsersync
-
-```
-harp server [--port 8080] <---- optional
+npm run start
 ```
 
 ## Built With
